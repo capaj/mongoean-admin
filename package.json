@@ -9,8 +9,7 @@
         "url": "https://github.com/capaj/mongoean-admin.git"
     },
     "engines": {
-        "node": "0.10.x",
-        "npm": "1.2.x"
+        "node": "0.10.x"
     },
     "scripts": {
         "start": "node node_modules/grunt-cli/bin/grunt",

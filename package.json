@@ -1,0 +1,52 @@
+{
+    "name": "mongoean-admin",
+    "description": "MongoDb database GUI admin",
+    "version": "0.0.1",
+    "private": false,
+    "author": "Jiri Spac",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/capaj/mongoean-admin.git"
+    },
+    "engines": {
+        "node": "0.10.x",
+        "npm": "1.2.x"
+    },
+    "scripts": {
+        "start": "node node_modules/grunt-cli/bin/grunt",
+        "test": "node node_modules/grunt-cli/bin/grunt test",
+        "postinstall": "bower install"
+    },
+    "port": 29017,
+    "env": "dev",
+    "dependencies": {
+        "array-sugar": "latest",
+        "express": "latest",
+        "async": "latest",
+        "bluebird": "latest",
+        "prerender-node": "latest",
+        "winston": "latest",
+        "forever": "latest",
+        "mongodb": "latest",
+        "socket.io": "latest",
+        "socket.io-rpc": "latest",
+        "grunt-ng-annotate": "latest",
+        "grunt-contrib-uglify": "latest",
+        "grunt-contrib-concat": "latest",
+        "grunt-contrib-watch": "latest",
+        "grunt-contrib-less": "latest",
+        "grunt-smg": "latest",
+        "grunt-nodemon": "latest",
+        "grunt-concurrent": "latest",
+        "grunt-contrib-copy": "latest",
+        "grunt-text-replace": "latest",
+        "grunt": "latest",
+		"grunt-angular-templates": "latest",
+		"load-grunt-tasks": "latest",
+        "lodash": "latest"
+    },
+    "devDependencies": {
+        "grunt-karma": "latest",
+        "grunt-bump": "latest"
+    }
+}

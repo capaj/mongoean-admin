@@ -1,7 +1,7 @@
 var logger = require('winston');
 
 module.exports = {
-    backupDb: function (path, dbNames) {
+    backupNow: function (instanceName, dbNames) {
 //        console.log('Starting directory: ' + process.cwd());
 //        try {
 //            process.chdir('');
@@ -19,5 +19,8 @@ module.exports = {
             }
             logger.log(stdout);
         });
+    },
+    schedule: function (cronSettings, path,) {
+
     }
 };

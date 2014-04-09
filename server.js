@@ -19,11 +19,11 @@ var pathChecker = require('./server/pathChecker.js');
 rpc.createServer(io, {expressApp: app});
 
 var mongoInstances = require('./server/mongo-instances');
-
+var backup = require('./server/backup');
 var currentInstance;
-var instances = mongoInstances();
+var instances = mongoInstances();   //fetches all instances from JSONs
 
-rpc.expose('status', {
+rpc.expose('admin', {
     /**
      *
      * @param {String} instance name(same as cfg JSON file name)
@@ -32,8 +32,11 @@ rpc.expose('status', {
     listDbs: function (instance) {
         var promisified = Promise.promisify(instances[instance].db.admin().listDatabases);
         return promisified();
-    }
-
+    },
+    getInstances: function () {
+        return instances;
+    },
+    backupNow: backup.backupNow
 });
 
 io.sockets.on('connection', function (socket) {

@@ -1,6 +1,6 @@
 var fs = require('fs');
 var mongodb = require('mongodb');
-
+var mongoClient = mongodb.MongoClient;
 var instances = {};
 
 module.exports = function () {
@@ -9,12 +9,9 @@ module.exports = function () {
         var instance = require("./../cfgs/" + file);
         instances[instanceName] = instance;
 
-        var mongoServer = new mongodb.Server(instance.path, instance.port);
-        var db = new mongodb.Db('mongoean_admin', mongoServer);
-// Establish connection to db
-        db.open(function(err, db) {
+        // Establish connection to db
+        mongoClient.connect('mongodb://' + instance.path, function (err, db) {
             instance.db = db;
-
         });
 
     });

@@ -1,4 +1,4 @@
-<div class="container" rpc-controller="rootCtrl" rpc-channel="admin">
+<div class="container">
     <h3>Whole DB has {{totalSize}}</h3>
     <table class="table table-hover">
         <thead>
@@ -6,12 +6,16 @@
             <td>#</td>
             <td>Name</td>
             <td>Size</td>
+            <td>
+                <button class="btn btn-primary" ng-click="backupNow()" ng-disabled="selectedForBackup().length === 0">Backup now</button>
+            </td>
         </tr>
         </thead>
         <tr ng-repeat="database in databases">
             <td>{{$index}}</td>
             <td><h5>{{database.name}}</h5></td>
             <td><span ng-bind="database.sizeOnDisk"></span></td>
+            <td><input type="checkbox" ng-model="database.includeForBackup"></td>
         </tr>
     </table>
 

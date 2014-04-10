@@ -1,7 +1,4 @@
-app.controller('backupCtrl', function ($scope, status, $log) {
-    status.listDbs('local').then(function (dbs) {
-        $log.info(dbs);
-        angular.extend($scope, dbs);
-    })
+app.controller('backupCtrl', function ($scope, admin, $log) {
+    admin.backupNow($scope.selectedInstance, $scope.databases[0]);
 
 });

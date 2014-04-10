@@ -2,6 +2,8 @@ var bc = 'public/lib/';
 var moduleFile = 'public/js/app.js';
 
 var appFiles = [
+    'public/js/bootstrap/**/*.js',
+
     'public/js/routes.js',
     //animations
     'public/js/animations/*.js',

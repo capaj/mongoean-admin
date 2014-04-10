@@ -20,7 +20,7 @@ module.exports = {
             logger.log(stdout);
         });
     },
-    schedule: function (cronSettings, path,) {
+    schedule: function (opts) {
 
     }
 };

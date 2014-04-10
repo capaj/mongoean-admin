@@ -30,11 +30,20 @@ rpc.expose('admin', {
      * @returns {*}
      */
     listDbs: function (instance) {
-        var promisified = Promise.promisify(instances[instance].db.admin().listDatabases);
-        return promisified();
+        if (instances[instance]) {
+            var promisified = Promise.promisify(instances[instance].db.admin().listDatabases);
+            return promisified();
+        } else {
+            throw new Error('No such instance');
+        }
+
     },
     getInstances: function () {
-        return instances;
+        var names = [];
+        for (var name in instances) {
+            names.push(name);
+        }
+        return names;
     },
     backupNow: backup.backupNow
 });

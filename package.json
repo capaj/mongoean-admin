@@ -20,7 +20,7 @@
     "env": "dev",
     "dependencies": {
         "array-sugar": "latest",
-        "express": "latest",
+        "express": "3.5.3",
         "async": "latest",
         "bluebird": "latest",
         "prerender-node": "latest",

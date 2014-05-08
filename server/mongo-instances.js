@@ -11,6 +11,9 @@ module.exports = function () {
 
         // Establish connection to db
         mongoClient.connect('mongodb://' + instance.path, function (err, db) {
+            if (err) {
+                console.error(err);
+            }
             instance.db = db;
         });
 

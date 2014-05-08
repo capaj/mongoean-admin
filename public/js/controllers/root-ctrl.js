@@ -1,4 +1,4 @@
-app.controller('rootCtrl', function ($scope, admin, $log) {
+app.controller('rootCtrl', function ($scope, admin, $log, $rootScope) {
     $scope.databases = [];
     admin.getInstances().then(function (instances) {
         $scope.instances = instances;
@@ -7,7 +7,12 @@ app.controller('rootCtrl', function ($scope, admin, $log) {
         admin.listDbs($scope.selectedInstance).then(function (dbs) {
             $log.info(dbs);
             angular.extend($scope, dbs);
+            $rootScope.readyCallback && $rootScope.readyCallback();
+        }, function (err) {
+
         });
+    }, function (err) {
+
     });
 
     angular.extend($scope, {

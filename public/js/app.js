@@ -17,7 +17,11 @@ window.app = angular.module('mongoeanAdmin',
         });
         $routeProvider.otherwise({redirectTo:'/404'});
     }
-).run(function ($rpc, $rootScope) {
+).run(function ($rpc, $window, $rootScope) {
+    $window.loadedData = function (cb) {
+        $rootScope.readyCallback = cb;  //callback to webdriver indicating we finished loading
+    };
+
     $rpc.connect('http://localhost:29017');   // don't forget port, if you are not on 80
     console.log('run ' + new Date().toJSON());
 });
